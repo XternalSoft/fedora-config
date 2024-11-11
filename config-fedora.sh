@@ -458,6 +458,7 @@ then
         metadata_expire=1h" 2>/dev/null > /etc/yum.repos.d/vscode.repo
 	check_cmd
 fi
+
 ## MySQL Community
 if ! check_repo_file mysql-community.repo
 then
@@ -477,6 +478,40 @@ then
         gpgcheck=1
         gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mysql-2023
         " 2>/dev/null > /etc/yum.repos.d/mysql-community.repo
+	check_cmd
+fi
+
+## Depot de remi
+if ! check_repo_file remi.repo
+then
+	echo -n "- - - Installation Remi Repo : "
+	dnf install "https://rpms.remirepo.net/fedora/remi-release-$FC0.rpm"
+	check_cmd
+fi
+
+## Depot Tableplus
+if ! check_repo_file tableplus.repo
+then
+	echo -n "- - - Installation Tableplus Repo : "
+	echo "[tableplus]
+        name=TablePlus - x86_64 - Stable
+        baseurl=https://yum.tableplus.com/rpm/x86_64
+        enabled=1
+        gpgcheck=1
+        gpgkey=https://yum.tableplus.com/apt.tableplus.com.gpg.key" 2>/dev/null > /etc/yum.repos.d/tableplus.repo
+	check_cmd
+fi
+
+## Depot Tableplus
+if ! check_repo_file warpdotdev.repo
+then
+	echo -n "- - - Installation warpdotdev Repo : "
+	echo "[warpdotdev]
+        name=warpdotdev
+        baseurl=https://releases.warp.dev/linux/rpm/stable
+        enabled=1
+        gpgcheck=1
+        gpgkey=https://releases.warp.dev/linux/keys/warp.asc" 2>/dev/null > /etc/yum.repos.d/warpdotdev.repo
 	check_cmd
 fi
 

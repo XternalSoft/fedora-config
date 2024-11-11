@@ -111,6 +111,7 @@ add:brave-browser
 add:cool-retro-term
 add:guake
 add:code
+add:warp-terminal
 
 # GUI : Sécurité
 add:keepassxc
@@ -120,3 +121,4 @@ add:keepassxc
 # Dev
 add:php83 php83-php-bcmath php83-php-cli php83-php-commonphp83-php-fpm php83-php-gd php83-php-intl php83-php-mbstring php83-php-mysqlnd php83-php-opcache php83-php-pdo php83-php-pecl-gnupg php83-php-pecl-igbinary php83-php-pecl-imagick-im7 php83-php-pecl-msgpack php83-php-pecl-mysql php83-php-pecl-pq php83-php-pecl-raphf php83-php-pecl-redis6 php83-php-pecl-xdebug3 php83-php-pecl-zip php83-php-process php83-php-sodium php83-php-xml php83-runtime php83-syspaths
 add:mysql-community-server mysql-community-client mysql-shell
+add:tableplus
