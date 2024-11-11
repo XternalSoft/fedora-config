@@ -405,11 +405,11 @@ if ! check_repo_file vivaldi.repo
 then
 	echo -n "- - - Installation Vivaldi Repo : "
 	echo "[vivaldi]
-	name=vivaldi
-	baseurl=https://repo.vivaldi.com/archive/rpm/x86_64
-	enabled=1
-	gpgcheck=1
-	gpgkey=http://repo.vivaldi.com/archive/linux_signing_key.pub" 2>/dev/null > /etc/yum.repos.d/vivaldi.repo
+name=vivaldi
+baseurl=https://repo.vivaldi.com/archive/rpm/x86_64
+enabled=1
+gpgcheck=1
+gpgkey=http://repo.vivaldi.com/archive/linux_signing_key.pub" 2>/dev/null > /etc/yum.repos.d/vivaldi.repo
 	check_cmd
 	sed -e 's/\t//g' -i /etc/yum.repos.d/vivaldi.repo
 fi
@@ -423,24 +423,24 @@ if ! check_repo_file google-chrome.repo
 then
 	echo -n "- - - Installation Google Chrome Repo : "
 	echo "[google-chrome]
-	name=google-chrome
-	baseurl=https://dl.google.com/linux/chrome/rpm/stable/x86_64
-	enabled=1
-	gpgcheck=1
-	gpgkey=https://dl.google.com/linux/linux_signing_key.pub" 2>/dev/null > /etc/yum.repos.d/google-chrome.repo
+name=google-chrome
+baseurl=https://dl.google.com/linux/chrome/rpm/stable/x86_64
+enabled=1
+gpgcheck=1
+gpgkey=https://dl.google.com/linux/linux_signing_key.pub" 2>/dev/null > /etc/yum.repos.d/google-chrome.repo
 	check_cmd
 	sed -e 's/\t//g' -i /etc/yum.repos.d/google-chrome.repo
 fi
 
 ## Brave
-if ! check_repo_file brave-browser-rpm-release.s3.brave.com_x86_64_.repo
+if ! check_repo_file brave-browser.repo
 then
 	echo -n "- - - Installation Brave Browser Repo : "
-	dnf install dnf-plugins-core
-	check_cmd
-	dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
-	check_cmd
-	rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+	echo -n "- - - Installation Google Chrome Repo : "
+	echo "[brave-browser]
+name=Brave Browser
+enabled=1
+baseurl=https://brave-browser-rpm-release.s3.brave.com/$basearch " 2>/dev/null > /etc/yum.repos.d/brave-browser.repo
 	check_cmd
 fi
 
@@ -449,13 +449,13 @@ if ! check_repo_file vscode.repo
 then
 	echo -n "- - - Installation VSCode Repo : "
 	echo "[Visual Studio Code]
-        name=packages.microsoft.com
-        baseurl=https://packages.microsoft.com/yumrepos/vscode/
-        enabled=1
-        gpgcheck=1
-        repo_gpgcheck=1
-        gpgkey=https://packages.microsoft.com/keys/microsoft.asc
-        metadata_expire=1h" 2>/dev/null > /etc/yum.repos.d/vscode.repo
+name=packages.microsoft.com
+baseurl=https://packages.microsoft.com/yumrepos/vscode/
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://packages.microsoft.com/keys/microsoft.asc
+metadata_expire=1h" 2>/dev/null > /etc/yum.repos.d/vscode.repo
 	check_cmd
 fi
 
@@ -464,20 +464,17 @@ if ! check_repo_file mysql-community.repo
 then
 	echo -n "- - - Installation MySQL Community Repo : "
 	echo "[mysql-8.4-lts-community]
-        name=MySQL 8.4 LTS Community Server
-        baseurl=http://repo.mysql.com/yum/mysql-8.4-community/fc/$releasever/$basearch
-        enabled=1
-        gpgcheck=1
-        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mysql-2023
-        " 2>/dev/null > /etc/yum.repos.d/mysql-community.repo
-	check_cmd
-	echo "[mysql-tools-8.4-lts-community]
-        name=MySQL Tools 8.4 LTS Community
-        baseurl=http://repo.mysql.com/yum/mysql-tools-8.4-community/fc/$releasever/$basearch
-        enabled=1
-        gpgcheck=1
-        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mysql-2023
-        " 2>/dev/null > /etc/yum.repos.d/mysql-community.repo
+name=MySQL 8.4 LTS Community Server
+baseurl=https://repo.mysql.com/yum/mysql-8.4-community/fc/\$releasever/\$basearch
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mysql-2023
+[mysql-tools-8.4-lts-community]
+name=MySQL Tools 8.4 LTS Community
+baseurl=https://repo.mysql.com/yum/mysql-tools-8.4-community/fc/\$releasever/\$basearch
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mysql-2023" 2>/dev/null > /etc/yum.repos.d/mysql-community.repo
 	check_cmd
 fi
 
@@ -494,24 +491,24 @@ if ! check_repo_file tableplus.repo
 then
 	echo -n "- - - Installation Tableplus Repo : "
 	echo "[tableplus]
-        name=TablePlus - x86_64 - Stable
-        baseurl=https://yum.tableplus.com/rpm/x86_64
-        enabled=1
-        gpgcheck=1
-        gpgkey=https://yum.tableplus.com/apt.tableplus.com.gpg.key" 2>/dev/null > /etc/yum.repos.d/tableplus.repo
+name=TablePlus - x86_64 - Stable
+baseurl=https://yum.tableplus.com/rpm/x86_64
+enabled=1
+gpgcheck=1
+gpgkey=https://yum.tableplus.com/apt.tableplus.com.gpg.key" 2>/dev/null > /etc/yum.repos.d/tableplus.repo
 	check_cmd
 fi
 
-## Depot Tableplus
+## Depot Warp Terminal
 if ! check_repo_file warpdotdev.repo
 then
 	echo -n "- - - Installation warpdotdev Repo : "
 	echo "[warpdotdev]
-        name=warpdotdev
-        baseurl=https://releases.warp.dev/linux/rpm/stable
-        enabled=1
-        gpgcheck=1
-        gpgkey=https://releases.warp.dev/linux/keys/warp.asc" 2>/dev/null > /etc/yum.repos.d/warpdotdev.repo
+name=warpdotdev
+baseurl=https://releases.warp.dev/linux/rpm/stable
+enabled=1
+gpgcheck=1
+gpgkey=https://releases.warp.dev/linux/keys/warp.asc" 2>/dev/null > /etc/yum.repos.d/warpdotdev.repo
 	check_cmd
 fi
 

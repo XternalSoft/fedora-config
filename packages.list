@@ -110,8 +110,8 @@ add:brave-browser
 # GUI : Utilitaires
 add:cool-retro-term
 add:guake
-add:code
 add:warp-terminal
+add:solaar
 
 # GUI : Sécurité
 add:keepassxc
@@ -119,6 +119,35 @@ add:keepassxc
 # GUI : Jeux
 
 # Dev
-add:php83 php83-php-bcmath php83-php-cli php83-php-commonphp83-php-fpm php83-php-gd php83-php-intl php83-php-mbstring php83-php-mysqlnd php83-php-opcache php83-php-pdo php83-php-pecl-gnupg php83-php-pecl-igbinary php83-php-pecl-imagick-im7 php83-php-pecl-msgpack php83-php-pecl-mysql php83-php-pecl-pq php83-php-pecl-raphf php83-php-pecl-redis6 php83-php-pecl-xdebug3 php83-php-pecl-zip php83-php-process php83-php-sodium php83-php-xml php83-runtime php83-syspaths
-add:mysql-community-server mysql-community-client mysql-shell
+add:code
+add:php83
+add:php83-php-bcmath
+add:php83-php-cli
+add:php83-php-common
+add:php83-php-fpm
+add:php83-php-gd
+add:php83-php-intl
+add:php83-php-mbstring
+add:php83-php-mysqlnd
+add:php83-php-opcache
+add:php83-php-pdo
+add:php83-php-pecl-gnupg
+add:php83-php-pecl-igbinary
+add:php83-php-pecl-imagick-im7
+add:php83-php-pecl-msgpack
+add:php83-php-pecl-mysql
+add:php83-php-pecl-pq
+add:php83-php-pecl-raphf
+add:php83-php-pecl-redis6
+add:php83-php-pecl-xdebug3
+add:php83-php-pecl-zip
+add:php83-php-process
+add:php83-php-sodium
+add:php83-php-xml
+add:php83-runtime
+add:php83-syspaths
+add:mysql-community-server
+add:mysql-community-client
+add:mysql-shell
 add:tableplus
+
