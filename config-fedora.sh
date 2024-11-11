@@ -436,7 +436,6 @@ fi
 if ! check_repo_file brave-browser.repo
 then
 	echo -n "- - - Installation Brave Browser Repo : "
-	echo -n "- - - Installation Google Chrome Repo : "
 	echo "[brave-browser]
 name=Brave Browser
 enabled=1
@@ -448,7 +447,7 @@ fi
 if ! check_repo_file vscode.repo
 then
 	echo -n "- - - Installation VSCode Repo : "
-	echo "[Visual Studio Code]
+	echo "[Visual-Studio-Code]
 name=packages.microsoft.com
 baseurl=https://packages.microsoft.com/yumrepos/vscode/
 enabled=1

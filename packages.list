@@ -108,10 +108,11 @@ add:discord
 add:brave-browser
 
 # GUI : Utilitaires
-add:cool-retro-term
-add:guake
 add:warp-terminal
 add:solaar
+add:flameshot
+#Pour Cisco Anyconnect
+add:webkit2gtk4.0-devel
 
 # GUI : Sécurité
 add:keepassxc

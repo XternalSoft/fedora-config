@@ -19,6 +19,7 @@ add:org.remmina.Remmina
 # GUI : Utilitaires
 add:com.usebottles.bottles
 add:com.github.tchx84.Flatseal
+add:
 
 # GUI : Dev
 add:com.getpostman.Postman
