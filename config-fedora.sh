@@ -245,10 +245,10 @@ fi
 if [[ "$1" = "scriptupdate" ]]
 then
 	echo $0
-	wget -O- https://raw.githubusercontent.com/aaaaadrien/fedora-config/refs/heads/main/config-fedora.sh > "$0"
+	wget -O- https://raw.githubusercontent.com/XternalSoft/fedora-config/refs/heads/main/config-fedora.sh > "$0"
 	chmod +x "$0"
 
-	wget -O- -q https://raw.githubusercontent.com/aaaaadrien/fedora-config/refs/heads/main/CHANGELOG.txt | head
+	wget -O- -q https://raw.githubusercontent.com/XternalSoft/fedora-config/refs/heads/main/CHANGELOG.txt | head
 
 	exit 0;
 fi
@@ -432,6 +432,54 @@ then
 	sed -e 's/\t//g' -i /etc/yum.repos.d/google-chrome.repo
 fi
 
+## Brave
+if ! check_repo_file brave-browser-rpm-release.s3.brave.com_x86_64_.repo
+then
+	echo -n "- - - Installation Brave Browser Repo : "
+	dnf install dnf-plugins-core
+	check_cmd
+	dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+	check_cmd
+	rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+	check_cmd
+fi
+
+## VSCode
+if ! check_repo_file vscode.repo
+then
+	echo -n "- - - Installation VSCode Repo : "
+	echo "[Visual Studio Code]
+        name=packages.microsoft.com
+        baseurl=https://packages.microsoft.com/yumrepos/vscode/
+        enabled=1
+        gpgcheck=1
+        repo_gpgcheck=1
+        gpgkey=https://packages.microsoft.com/keys/microsoft.asc
+        metadata_expire=1h" 2>/dev/null > /etc/yum.repos.d/vscode.repo
+	check_cmd
+fi
+## MySQL Community
+if ! check_repo_file mysql-community.repo
+then
+	echo -n "- - - Installation MySQL Community Repo : "
+	echo "[mysql-8.4-lts-community]
+        name=MySQL 8.4 LTS Community Server
+        baseurl=http://repo.mysql.com/yum/mysql-8.4-community/fc/$releasever/$basearch
+        enabled=1
+        gpgcheck=1
+        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mysql-2023
+        " 2>/dev/null > /etc/yum.repos.d/mysql-community.repo
+	check_cmd
+	echo "[mysql-tools-8.4-lts-community]
+        name=MySQL Tools 8.4 LTS Community
+        baseurl=http://repo.mysql.com/yum/mysql-tools-8.4-community/fc/$releasever/$basearch
+        enabled=1
+        gpgcheck=1
+        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mysql-2023
+        " 2>/dev/null > /etc/yum.repos.d/mysql-community.repo
+	check_cmd
+fi
+
 ## FLATHUB
 if [[ $(flatpak remotes | grep -c flathub) -ne 1 ]]
 then
@@ -574,7 +622,7 @@ done < "$ICI/flatpak.list"
 
 ### Vérif configuration système
 echo "11- Configuration personnalisée du système"
-SYSCTLFIC="/etc/sysctl.d/adrien.conf"
+SYSCTLFIC="/etc/sysctl.d/myconfig.conf"
 if [[ ! -e "$SYSCTLFIC" ]]
 then
 	echo -n "- - - Création du fichier $SYSCTLFIC : "
@@ -583,8 +631,8 @@ then
 fi
 if [[ $(grep -c 'vm.swappiness' "$SYSCTLFIC") -lt 1 ]]
 then
-	echo -n "- - - Définition du swapiness à 10 : "
-	echo "vm.swappiness = 10" >> "$SYSCTLFIC"
+	echo -n "- - - Définition du swapiness à 1 : "
+	echo "vm.swappiness = 1" >> "$SYSCTLFIC"
 	check_cmd
 fi
 if [[ $(grep -c 'kernel.sysrq' "$SYSCTLFIC") -lt 1 ]]
@@ -594,7 +642,7 @@ then
 	check_cmd
 fi
 
-PROFILEFIC="/etc/profile.d/adrien.sh"
+PROFILEFIC="/etc/profile.d/myconfig.sh"
 if [[ ! -e "$PROFILEFIC" ]]
 then
         echo -n "- - - Création du fichier $PROFILEFIC : "

@@ -6,6 +6,9 @@ add:qgnomeplatform-qt6
 
 # Extensions
 add:gnome-extensions-app
-add:gnome-shell-extension-dash-to-dock
+add:gnome-shell-extension-dash-to-panel
 add:gnome-shell-extension-appindicator
-add:gnome-shell-extension-gsconnect
+add:gnome-shell-extension-blur-my-shell
+add:gnome-shell-extension-no-overview
+add:gnome-shell-extension-user-theme
+add:gnome-shell-extension-just-perfection

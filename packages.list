@@ -6,20 +6,19 @@ add:aspell-fr
 add:libreoffice-langpack-fr
 
 # Specifque Hardware
-add:amd-ucode-firmware
+#add:amd-ucode-firmware
 
 # Admin SYS
-add:cockpit
-add:cockpit-bridge
-add:cockpit-networkmanager
-add:cockpit-selinux
-add:cockpit-storaged
-add:cockpit-system
-add:cockpit-ws
+#add:cockpit
+#add:cockpit-bridge
+#add:cockpit-networkmanager
+#add:cockpit-selinux
+#add:cockpit-storaged
+#add:cockpit-system
+#add:cockpit-ws
 
 # GNOME Apps
 add:ptyxis
-add:seahorse
 add:gnome-tweaks
 add:file-roller
 add:dconf-editor
@@ -42,8 +41,6 @@ add:ShellCheck
 
 # CLI : Système
 add:htop
-add:nmon
-add:glances
 del:neofetch
 del:screenfetch
 add:fastfetch
@@ -52,7 +49,6 @@ add:lm_sensors
 add:nvtop
 add:ncdu
 add:cronie
-add:mariadb
 add:nfs-utils
 
 # CLI : Disques
@@ -70,13 +66,9 @@ add:telnet
 
 # CLI : backup
 add:borgbackup
+add:vorta
 
 # CLI : Multimedia
-add:abcde
-add:sox
-add:vorbisgain
-add:mediainfo
-add:yt-dlp
 
 # CLI : Divers
 add:git
@@ -87,16 +79,9 @@ add:arm-image-installer
 # GUI : Multimedia
 add:pavucontrol
 del:clementine
-add:strawberry
-add:smplayer
 add:soundconverter
-add:kdenlive
 add:audacity
-add:easytag
 del:peek
-del:obs-studio
-del:obs-studio-plugin-webkitgtk
-del:obs-studio-plugin-browser
 add:mediainfo-gui
 
 # GUI : Virtualisation
@@ -114,19 +99,24 @@ del:anydesk
 add:wireshark
 
 # GUI : Internet
-add:epiphany
+del:epiphany
 add:evolution
 add:vivaldi-stable
 add:google-chrome-stable
 del:telegram-desktop
 add:discord
+add:brave-browser
 
 # GUI : Utilitaires
 add:cool-retro-term
 add:guake
+add:code
 
 # GUI : Sécurité
 add:keepassxc
 
 # GUI : Jeux
-add:dosbox-staging
+
+# Dev
+add:php83 php83-php-bcmath php83-php-cli php83-php-commonphp83-php-fpm php83-php-gd php83-php-intl php83-php-mbstring php83-php-mysqlnd php83-php-opcache php83-php-pdo php83-php-pecl-gnupg php83-php-pecl-igbinary php83-php-pecl-imagick-im7 php83-php-pecl-msgpack php83-php-pecl-mysql php83-php-pecl-pq php83-php-pecl-raphf php83-php-pecl-redis6 php83-php-pecl-xdebug3 php83-php-pecl-zip php83-php-process php83-php-sodium php83-php-xml php83-runtime php83-syspaths
+add:mysql-community-server mysql-community-client mysql-shell

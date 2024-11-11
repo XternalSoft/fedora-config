@@ -1,21 +1,34 @@
 # GUI : Multimedia
-add:com.github.marinm.songrec
-add:com.obsproject.Studio
 
 # GUI : Graphisme
 add:org.upscayl.Upscayl
+add:com.github.KRTirtho.Spotube
 
 # GUI : Internet
-add:com.anydesk.Anydesk
-del:com.discordapp.Discord
 add:org.telegram.desktop
+add:chat.simplex.simplex
+add:com.slack.Slack
+add:com.microsoft.Edge
+add:com.protonvpn.www
+add:io.github.zen_browser.zen
+add:io.gitlab.librewolf-community
+add:one.ablaze.floorp
+add:us.zoom.Zoom
+add:org.remmina.Remmina
 
 # GUI : Utilitaires
 add:com.usebottles.bottles
 add:com.github.tchx84.Flatseal
 
-# GUI : Jeux
-add:com.valvesoftware.Steam
+# GUI : Dev
+add:com.getpostman.Postman
+add:com.usebruno.Bruno
+add:io.dbeaver.DBeaverCommunity
+add:io.podman_desktop.PodmanDesktop
+
+# GUI: Security
+add:io.github.zefr0x.hashes
+add:org.nmap.Zenmap
 
 # GUI : Virtualisation
 add:org.virt_manager.virt-viewer
